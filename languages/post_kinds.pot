@@ -2,10 +2,10 @@
 # This file is distributed under the same license as the IndieWeb Post Kinds package.
 msgid ""
 msgstr ""
-"Project-Id-Version: IndieWeb Post Kinds 1.0\n"
+"Project-Id-Version: IndieWeb Post Kinds 1.0.1\n"
 "Report-Msgid-Bugs-To: "
 "http://wordpress.org/support/plugin/indieweb-post-kinds\n"
-"POT-Creation-Date: 2015-02-10 01:33:25+00:00\n"
+"POT-Creation-Date: 2015-02-10 13:31:15+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -14,77 +14,77 @@ msgstr ""
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "X-Generator: grunt-wp-i18n 0.4.9\n"
 
-#: build/indieweb-post-kinds.php:257 indieweb-post-kinds.php:257
+#: build/trunk/indieweb-post-kinds.php:257 indieweb-post-kinds.php:257
 msgid "This Plugin Requires Webmention Support"
 msgstr ""
 
-#: build/iwt-config.php:4 iwt-config.php:4
+#: build/trunk/iwt-config.php:4 iwt-config.php:4
 msgid "Post Kinds"
 msgstr ""
 
-#: build/iwt-config.php:12 iwt-config.php:12
+#: build/trunk/iwt-config.php:12 iwt-config.php:12
 msgid "Content Options"
 msgstr ""
 
-#: build/iwt-config.php:13 iwt-config.php:13
+#: build/trunk/iwt-config.php:13 iwt-config.php:13
 msgid "Add the Response Box (Required if No Theme Support)"
 msgstr ""
 
-#: build/iwt-config.php:14 iwt-config.php:14
+#: build/trunk/iwt-config.php:14 iwt-config.php:14
 msgid "Add Rich Embed Support for Facebook, Google Plus, Instagram, etc"
 msgstr ""
 
-#: build/iwt-config.php:15 iwt-config.php:15
+#: build/trunk/iwt-config.php:15 iwt-config.php:15
 msgid "Do Not Store Cached Responses"
 msgstr ""
 
-#: build/iwt-config.php:16 iwt-config.php:16
+#: build/trunk/iwt-config.php:16 iwt-config.php:16
 msgid "Disable Post Formats"
 msgstr ""
 
-#: build/iwt-config.php:23 iwt-config.php:23
+#: build/trunk/iwt-config.php:23 iwt-config.php:23
 msgid "Options for Displaying the Response"
 msgstr ""
 
-#: build/iwt-config.php:39 iwt-config.php:39
+#: build/trunk/iwt-config.php:39 iwt-config.php:39
 msgid "Indieweb Post Kinds"
 msgstr ""
 
-#: build/iwt-config.php:41 iwt-config.php:41
+#: build/trunk/iwt-config.php:41 iwt-config.php:41
 msgid ""
 "Allows you to reply/like/RSVP etc to another site from your own, by adding "
 "support for kinds of posts to WordPress as a custom taxonomy."
 msgstr ""
 
-#: build/kind-functions.php:63 kind-functions.php:63
+#: build/trunk/kind-functions.php:63 kind-functions.php:63
 msgid "Invalid post"
 msgstr ""
 
-#: build/kind-postmeta.php:25 kind-postmeta.php:25
+#: build/trunk/kind-postmeta.php:25 kind-postmeta.php:25
 msgid "Context - In Response To"
 msgstr ""
 
-#: build/kind-postmeta.php:41 kind-postmeta.php:41
+#: build/trunk/kind-postmeta.php:41 kind-postmeta.php:41
 msgid "URL"
 msgstr ""
 
-#: build/kind-postmeta.php:45 kind-postmeta.php:45
+#: build/trunk/kind-postmeta.php:45 kind-postmeta.php:45
 msgid "Custom Title"
 msgstr ""
 
-#: build/kind-postmeta.php:49 kind-postmeta.php:49
+#: build/trunk/kind-postmeta.php:49 kind-postmeta.php:49
 msgid "Author"
 msgstr ""
 
-#: build/kind-postmeta.php:53 kind-postmeta.php:53
+#: build/trunk/kind-postmeta.php:53 kind-postmeta.php:53
 msgid "Author Icon"
 msgstr ""
 
-#: build/kind-postmeta.php:58 kind-postmeta.php:58
+#: build/trunk/kind-postmeta.php:58 kind-postmeta.php:58
 msgid "Content/Citation"
 msgstr ""
 
-#: build/kind-view.php:54 kind-view.php:54
+#: build/trunk/kind-view.php:54 kind-view.php:54
 msgid "by"
 msgstr ""
 
@@ -110,215 +110,216 @@ msgstr ""
 msgid "http://david.shanske.com"
 msgstr ""
 
-#: build/indieweb-post-kinds.php:63 build/indieweb-post-kinds.php:77
-#: indieweb-post-kinds.php:63 indieweb-post-kinds.php:77
+#: build/trunk/indieweb-post-kinds.php:63
+#: build/trunk/indieweb-post-kinds.php:77 indieweb-post-kinds.php:63
+#: indieweb-post-kinds.php:77
 msgctxt "kind"
 msgid "Kinds"
 msgstr ""
 
-#: build/indieweb-post-kinds.php:64 indieweb-post-kinds.php:64
+#: build/trunk/indieweb-post-kinds.php:64 indieweb-post-kinds.php:64
 msgctxt "kind"
 msgid "Kind"
 msgstr ""
 
-#: build/indieweb-post-kinds.php:65 indieweb-post-kinds.php:65
+#: build/trunk/indieweb-post-kinds.php:65 indieweb-post-kinds.php:65
 msgctxt "kind"
 msgid "Search Kinds"
 msgstr ""
 
-#: build/indieweb-post-kinds.php:66 indieweb-post-kinds.php:66
+#: build/trunk/indieweb-post-kinds.php:66 indieweb-post-kinds.php:66
 msgctxt "kind"
 msgid "Popular Kinds"
 msgstr ""
 
-#: build/indieweb-post-kinds.php:67 indieweb-post-kinds.php:67
+#: build/trunk/indieweb-post-kinds.php:67 indieweb-post-kinds.php:67
 msgctxt "kind"
 msgid "All Kinds"
 msgstr ""
 
-#: build/indieweb-post-kinds.php:68 indieweb-post-kinds.php:68
+#: build/trunk/indieweb-post-kinds.php:68 indieweb-post-kinds.php:68
 msgctxt "kind"
 msgid "Parent Kind"
 msgstr ""
 
-#: build/indieweb-post-kinds.php:69 indieweb-post-kinds.php:69
+#: build/trunk/indieweb-post-kinds.php:69 indieweb-post-kinds.php:69
 msgctxt "kind"
 msgid "Parent Kind:"
 msgstr ""
 
-#: build/indieweb-post-kinds.php:70 indieweb-post-kinds.php:70
+#: build/trunk/indieweb-post-kinds.php:70 indieweb-post-kinds.php:70
 msgctxt "kind"
 msgid "Edit Kind"
 msgstr ""
 
-#: build/indieweb-post-kinds.php:71 indieweb-post-kinds.php:71
+#: build/trunk/indieweb-post-kinds.php:71 indieweb-post-kinds.php:71
 msgctxt "kind"
 msgid "Update Kind"
 msgstr ""
 
-#: build/indieweb-post-kinds.php:72 indieweb-post-kinds.php:72
+#: build/trunk/indieweb-post-kinds.php:72 indieweb-post-kinds.php:72
 msgctxt "kind"
 msgid "Add New Kind"
 msgstr ""
 
-#: build/indieweb-post-kinds.php:73 indieweb-post-kinds.php:73
+#: build/trunk/indieweb-post-kinds.php:73 indieweb-post-kinds.php:73
 msgctxt "kind"
 msgid "New Kind"
 msgstr ""
 
-#: build/indieweb-post-kinds.php:74 indieweb-post-kinds.php:74
+#: build/trunk/indieweb-post-kinds.php:74 indieweb-post-kinds.php:74
 msgctxt "kind"
 msgid "Separate kinds with commas"
 msgstr ""
 
-#: build/indieweb-post-kinds.php:75 indieweb-post-kinds.php:75
+#: build/trunk/indieweb-post-kinds.php:75 indieweb-post-kinds.php:75
 msgctxt "kind"
 msgid "Add or remove kinds"
 msgstr ""
 
-#: build/indieweb-post-kinds.php:76 indieweb-post-kinds.php:76
+#: build/trunk/indieweb-post-kinds.php:76 indieweb-post-kinds.php:76
 msgctxt "kind"
 msgid "Choose from the most used kinds"
 msgstr ""
 
-#: build/indieweb-post-kinds.php:215 indieweb-post-kinds.php:215
+#: build/trunk/indieweb-post-kinds.php:215 indieweb-post-kinds.php:215
 msgctxt "kind archive title"
 msgid "Notes"
 msgstr ""
 
-#: build/indieweb-post-kinds.php:217 indieweb-post-kinds.php:217
+#: build/trunk/indieweb-post-kinds.php:217 indieweb-post-kinds.php:217
 msgctxt "kind archive title"
 msgid "Articles"
 msgstr ""
 
-#: build/indieweb-post-kinds.php:219 indieweb-post-kinds.php:219
+#: build/trunk/indieweb-post-kinds.php:219 indieweb-post-kinds.php:219
 msgctxt "kind archive title"
 msgid "Bookmarks"
 msgstr ""
 
-#: build/indieweb-post-kinds.php:221 indieweb-post-kinds.php:221
+#: build/trunk/indieweb-post-kinds.php:221 indieweb-post-kinds.php:221
 msgctxt "kind archive title"
 msgid "Favorites"
 msgstr ""
 
-#: build/indieweb-post-kinds.php:223 indieweb-post-kinds.php:223
+#: build/trunk/indieweb-post-kinds.php:223 indieweb-post-kinds.php:223
 msgctxt "kind archive title"
 msgid "Likes"
 msgstr ""
 
-#: build/indieweb-post-kinds.php:225 indieweb-post-kinds.php:225
+#: build/trunk/indieweb-post-kinds.php:225 indieweb-post-kinds.php:225
 msgctxt "kind archive title"
 msgid "Photos"
 msgstr ""
 
-#: build/indieweb-post-kinds.php:227 indieweb-post-kinds.php:227
+#: build/trunk/indieweb-post-kinds.php:227 indieweb-post-kinds.php:227
 msgctxt "kind archive title"
 msgid "Replies"
 msgstr ""
 
-#: build/indieweb-post-kinds.php:229 indieweb-post-kinds.php:229
+#: build/trunk/indieweb-post-kinds.php:229 indieweb-post-kinds.php:229
 msgctxt "kind archive title"
 msgid "Repost"
 msgstr ""
 
-#: build/indieweb-post-kinds.php:231 indieweb-post-kinds.php:231
+#: build/trunk/indieweb-post-kinds.php:231 indieweb-post-kinds.php:231
 msgctxt "kind archive title"
 msgid "RSVP"
 msgstr ""
 
-#: build/indieweb-post-kinds.php:234 indieweb-post-kinds.php:234
+#: build/trunk/indieweb-post-kinds.php:234 indieweb-post-kinds.php:234
 msgctxt "kind archive title"
 msgid "Tags"
 msgstr ""
 
-#: build/kind-functions.php:83 kind-functions.php:83
+#: build/trunk/kind-functions.php:83 kind-functions.php:83
 msgctxt "Post kind"
 msgid "Article"
 msgstr ""
 
-#: build/kind-functions.php:84 kind-functions.php:84
+#: build/trunk/kind-functions.php:84 kind-functions.php:84
 msgctxt "Post kind"
 msgid "Note"
 msgstr ""
 
-#: build/kind-functions.php:85 kind-functions.php:85
+#: build/trunk/kind-functions.php:85 kind-functions.php:85
 msgctxt "Post kind"
 msgid "Reply"
 msgstr ""
 
-#: build/kind-functions.php:86 kind-functions.php:86
+#: build/trunk/kind-functions.php:86 kind-functions.php:86
 msgctxt "Post kind"
 msgid "Repost"
 msgstr ""
 
-#: build/kind-functions.php:87 kind-functions.php:87
+#: build/trunk/kind-functions.php:87 kind-functions.php:87
 msgctxt "Post kind"
 msgid "Like"
 msgstr ""
 
-#: build/kind-functions.php:88 kind-functions.php:88
+#: build/trunk/kind-functions.php:88 kind-functions.php:88
 msgctxt "Post kind"
 msgid "Favorite"
 msgstr ""
 
-#: build/kind-functions.php:89 kind-functions.php:89
+#: build/trunk/kind-functions.php:89 kind-functions.php:89
 msgctxt "Post kind"
 msgid "Bookmark"
 msgstr ""
 
-#: build/kind-functions.php:90 kind-functions.php:90
+#: build/trunk/kind-functions.php:90 kind-functions.php:90
 msgctxt "Post kind"
 msgid "Photo"
 msgstr ""
 
-#: build/kind-functions.php:91 kind-functions.php:91
+#: build/trunk/kind-functions.php:91 kind-functions.php:91
 msgctxt "Post kind"
 msgid "Tag"
 msgstr ""
 
-#: build/kind-functions.php:92 kind-functions.php:92
+#: build/trunk/kind-functions.php:92 kind-functions.php:92
 msgctxt "Post kind"
 msgid "RSVP"
 msgstr ""
 
-#: build/kind-functions.php:106 build/kind-functions.php:107
-#: build/kind-functions.php:113 kind-functions.php:106 kind-functions.php:107
-#: kind-functions.php:113
+#: build/trunk/kind-functions.php:106 build/trunk/kind-functions.php:107
+#: build/trunk/kind-functions.php:113 kind-functions.php:106
+#: kind-functions.php:107 kind-functions.php:113
 msgctxt "Post kind verbs"
 msgid " "
 msgstr ""
 
-#: build/kind-functions.php:108 kind-functions.php:108
+#: build/trunk/kind-functions.php:108 kind-functions.php:108
 msgctxt "Post kind verbs"
 msgid "In Reply To"
 msgstr ""
 
-#: build/kind-functions.php:109 kind-functions.php:109
+#: build/trunk/kind-functions.php:109 kind-functions.php:109
 msgctxt "Post kind verbs"
 msgid "Reposted"
 msgstr ""
 
-#: build/kind-functions.php:110 kind-functions.php:110
+#: build/trunk/kind-functions.php:110 kind-functions.php:110
 msgctxt "Post kind verbs"
 msgid "Liked"
 msgstr ""
 
-#: build/kind-functions.php:111 kind-functions.php:111
+#: build/trunk/kind-functions.php:111 kind-functions.php:111
 msgctxt "Post kind verbs"
 msgid "Favorited"
 msgstr ""
 
-#: build/kind-functions.php:112 kind-functions.php:112
+#: build/trunk/kind-functions.php:112 kind-functions.php:112
 msgctxt "Post kind verbs"
 msgid "Bookmarked"
 msgstr ""
 
-#: build/kind-functions.php:114 kind-functions.php:114
+#: build/trunk/kind-functions.php:114 kind-functions.php:114
 msgctxt "Post kind verbs"
 msgid "Tagged"
 msgstr ""
 
-#: build/kind-functions.php:115 kind-functions.php:115
+#: build/trunk/kind-functions.php:115 kind-functions.php:115
 msgctxt "Post kind verbs"
 msgid "RSVPed"
 msgstr ""
