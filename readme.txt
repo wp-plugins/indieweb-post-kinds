@@ -13,7 +13,12 @@ Post Kinds adds support for responding to and interacting with other sites using
 
 Post Kinds implements [kinds of posts](http://indiewebcamp.com/post_kinds).
 
-Post Kinds makes it clear when your post is a reply or a like of someone else's post. It can also distinguish notes, articles and photos in a manner similar to post formats..
+Post Kinds makes it clear when your post is a reply or a like of someone else's post. It can also distinguish notes, articles and photos in a manner similar to [post formats](http://codex.wordpress.org/Post_Formats).
+
+== Screenshots ==
+
+1. Here is an example of what a like looks like
+2. Here is a reply to a Youtube video
 
 == Frequently Asked Questions ==
 
