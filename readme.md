@@ -7,7 +7,7 @@
 **License:** GPLv2 or later  
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
 
-Post Kinds adds support for responding to and interacting with other sites using the standards developed by [IndieWebCamp](http://indiewebcamp.com). The standards work through simple microformats2 markup of the site and webmentions to allow sites to communicate with each other.
+Post Kinds adds support for responding to and interacting with other sites using the standards developed by IndieWebCamp
 
 ## Description ##
 
