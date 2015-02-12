@@ -1,29 +1,42 @@
 # Indieweb Post Kinds #
 **Contributors:** dshanske  
 **Tags:** indieweb  
-**Stable tag:** 1.0.1  
+**Stable tag:** 1.0.2  
 **Requires at least:** 4.0  
 **Tested up to:** 4.1  
 **License:** GPLv2 or later  
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
 
-Allows you to reply/like/RSVP etc to another site from your own, by adding support for kinds of posts to WordPress as a custom taxonomy.
+Post Kinds adds support for responding to and interacting with other sites using the standards developed by [IndieWebCamp](http://indiewebcamp.com). The standards work through simple microformats2 markup of the site and webmentions to allow sites to communicate with each other.
 
 ## Description ##
 
-Post Kinds adds support for responding to and interacting with other sites using the standards developed by [IndieWebCamp](http:/indiewebcamp.com). The standards work through simple microformats2 markup of the site and webmentions to allow sites to communicate with each other.
+Post Kinds implements [kinds of posts](http://indiewebcamp.com/post_kinds).
 
-The plugin requires the [webmention](https://wordpress.org/plugins/webmention/) plugin to support sending/receiving notice of a reply/like to another site which will appear as a comment. The [Semantic Linkbacks](https://wordpress.org/plugins/semantic-linkbacks/) plugin is available to more richly display the comment. 
+Post Kinds makes it clear when your post is a reply or a like of someone else's post. It can also distinguish notes, articles and photos in a manner similar to post formats..
 
-Indieweb Post Kinds adds a Custom Taxonomy to the standard post type in Wordpress that allows posts to have a semantic component, based on the same conventions as the built-in Post Formats.
+## Frequently Asked Questions ##
 
-While the conventions are the same as post formats and thus can be used for theming, post kinds are less about formatting and more about responding to and interacting with other sites. It is best to disable post formats in favor of post kinds. 
+### What is a Post Kind? ###
+
+There are many different kinds of posts. 
+
+This plugin allows posts to be classified as replies, likes, etc. and to mark them up appropriately with microformats.
+
+### How does it work? ###
+
+1. Bob wants to reply to Sue on his own website.
+2. Sue enables webmentions on her site.
+3. Bob creates a post and sets it as a reply to Sue's post.
+4. A webmention is sent to Sue's site, and stored as a comment on Sue's post.
+
+### How do I learn more? ###
 
 For more information on the Indieweb and tools for WordPress, visit [Getting Strted on WordPress](http://indiewebcamp.com/Getting_Started_on_WordPress).
 
 ## Installation ##
 
-Install from repository, activate, enjoy
+The plugin requires the [webmention](https://wordpress.org/plugins/webmention/) plugin to support sending/receiving notice of a reply/like to another site which will appear as a comment. The [Semantic Linkbacks](https://wordpress.org/plugins/semantic-linkbacks/) plugin is available to more richly display the comment.
 
 ## Post Kinds ##
 
@@ -91,6 +104,7 @@ Indieweb Post Kinds already has support for replying to Twitter posts using the 
 
 
 ## Changelog ##
+ * *Version 1.0.2* - Bug fixes
  * *Version 1.0.1* - Update Readme to better describe 
  * *Version 1.0*  - Now in the WordPress repository
  * *Version 0.3*  - Custom Code for Generating the Kind Select Box to Allow for Default Kind. Defined constant POST_KIND_EXCLUDE to hide kinds from the selector 
