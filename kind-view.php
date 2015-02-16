@@ -10,12 +10,14 @@ $options = get_option('iwt_options');
 
 
 // Extracts the Domain Name for a URL for presentation purposes
-function extract_domain_name($url) {
-   $host = parse_url($url, PHP_URL_HOST);
-   $host = preg_replace("/^www\./", "", $host);
-   return $host;
-  }	
-
+if (!function_exists('extract_domain_name'))
+  {
+    function extract_domain_name($url) {
+      $host = parse_url($url, PHP_URL_HOST);
+      $host = preg_replace("/^www\./", "", $host);
+      return $host;
+    }	
+  }
 
 function get_kind_response_display() {
 	$meta = get_post_meta(get_the_ID(), '_resp_full', true);
@@ -39,7 +41,7 @@ function get_kind_response_display() {
            }	
 	 if (! empty($response['url'])  )
            {
-                 $resp .= '<a class="u-url" href="' . $response['url'] . '"></a><strong>' . $verbstrings[$kind] . '</strong>';
+                 $resp .= '<a class="u-url verb" href="' . $response['url'] . '"></a><strong>' . $verbstrings[$kind] . '</strong>';
 		 if (!empty ($response['title']) )
 			{
 		 		$resp .= ' ' . '<a href="' . $response['url'] . '">' . $response['title'] . '</a>';
@@ -100,6 +102,17 @@ function get_kind_response_display() {
 	 // This means that there is no URL or content, just a title. Which implies something like a tag or a like of a concept	
 	 else 
 	   {
+		$resp .= '<span class="verb"><strong>' . $verbstrings[$kind] . '</strong></span>';
+		$resp .= ' - ' . '<span class="p-name">' . $response ['title'] . '</span>';
+                if (!empty ($response['author']) )
+                        {
+                                $resp .= '<span class="p-author h-card"> ' . __("by", "Post kinds") . ' ';
+                                if (! empty($response['icon']) )
+                                   {
+                                        $resp .= '<img class="u-photo" src="' . $response['icon'] . '" title="' . $response['author'] . '" />';
+                                   }
+                                $resp .= $response['author'] . '</span>';
+                      }
            }
 
         // Wrap the entire display in the class response
