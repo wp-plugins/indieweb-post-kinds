@@ -1,7 +1,7 @@
 # Indieweb Post Kinds #
 **Contributors:** dshanske  
-**Tags:** indieweb  
-**Stable tag:** 1.1.0  
+**Tags:** indieweb, interaction, posts, webmention  
+**Stable tag:** 1.2.0  
 **Requires at least:** 4.0  
 **Tested up to:** 4.1  
 **License:** GPLv2 or later  
@@ -45,6 +45,15 @@ The plugin requires the [webmention](https://wordpress.org/plugins/webmention/) 
 To declare your theme supports post kinds(if it does):
 
 add_theme_support('post-kinds');
+
+If your theme does not declare support, then the context information will be added to the content. It is assumed if your theme declares support, it is
+responsible for display.
+
+## Upgrade Notice ##
+
+### 1.2.0 ###
+This version migrates data to a new storage formats. Backup your installation
+first as a precaution.
 
 ## Post Kinds ##
 
@@ -131,31 +140,10 @@ define('MULTIKIND', '1');
 
 Indieweb Post Kinds already has support for replying to Twitter posts using the Social Network Auto Poster plugin.
 
-## Functions ##
-
-`get_post_kind_slug($id)` - Return the kind slug for a given post. If `$id` is not specified, use current post.
-`get_post_kind($id)` - Return the kind string for a given post. If `$id` is not specified, use current post.
-
-`has_post_kind($kind, $post)` - Returns true/false if kind is in post. If post is empty, then use current post
-
-`get_kind_context_class( $class, $classtype )` - Returns the CSS class to be applied to the response/context if the kind is one for which there is context. Classtype defaults to u, other option is usually p. Sets the class to the kind slug and for specially specified slugs, sets appropriate mf2 classes as well. $class specifies any additional classes to be added.
-
-
-
-##  Filters ##
-
-`get_the_kind` - Filter get_the_kinds
-
-`the_kinds` - Filter get_the_kinds_list
-
-`kind_classes` - Filter get_kind_class
-
-`kind_verb` - Filter get_kind_verbs
-
-`kind-response-display` - Filters the output being added to the_content or to custom location in theme
-
-
 ## Changelog ##
+ * *Version 1.2.0* - Change to store meta using [WordPress Data](https://indiewebcamp.com/WordPress_Data) proposal. Display functionality broken into individual
+pieces to make it easier to customize and edit. Multi-reply support.
+ * *Version 1.1.1* - Adds theme support.
  * *Version 1.1.0* - Added new kinds - listen, watch, check-in, play at the suggestion of acegiak. 
 Adds support for passive kinds. Some code cleanup and commenting. Start of add_theme_support function. This will
 replace the setting to embed in content in a future version.
