@@ -3,7 +3,7 @@
  * Plugin Name: IndieWeb Post Kinds
  * Plugin URI: https://github.com/dshanske/indieweb-post-kinds
  * Description: Ever want to reply to someone else's post with a post on your own site? Or to "like" someone else's post, but with your own site?
- * Version: 1.2.0
+ * Version: 1.2.1
  * Author: David Shanske
  * Author URI: http://david.shanske.com
  * Text Domain: Post kinds
@@ -34,12 +34,19 @@ require_once( plugin_dir_path( __FILE__ ) . '/kind-functions.php');
 require_once( plugin_dir_path( __FILE__ ) . '/kind-view.php');
 // Add Kind Meta Display Functions
 require_once( plugin_dir_path( __FILE__ ) . '/kind-meta.php');
+// Add Kind Version of Semantic Linkbacks Comment Function
+require_once( plugin_dir_path( __FILE__ ) . '/kind-semantics.php');
+
+
 
 // Add Embed Functions for Commonly Embedded Websites not Supported by Wordpress
 require_once( plugin_dir_path( __FILE__ ) . '/embeds.php');
 
 // Register Kind Taxonomy
 add_action( 'init', 'register_taxonomy_kind' );
+
+// Semantic Linkbacks Override for Comments
+add_action( 'init', 'kind_remove_semantics', 11);
 
 // Load stylesheets
 add_action( 'wp_enqueue_scripts', 'kindstyle_load' );
@@ -68,6 +75,9 @@ add_action( 'admin_notices', 'postkind_plugin_notice' );
 // Trigger Webmention on Change in Post Status
 add_filter('transition_post_status', 'it_transition', 10, 3);
 
+// Add Response to Feed
+add_filter('the_content_feed', 'kind_content_feed');
+
 function kindstyle_load() {
         wp_enqueue_style( 'kind', plugin_dir_url( __FILE__ ) . 'kind.min.css');
   }
@@ -82,11 +92,14 @@ function iwt_settings_link($links) {
   return $links; 
 }
 
-function activate_kinds()
-    {
-	register_taxonomy_kind();
-	kind_defaultterms();
-    }
+function activate_kinds() {
+  if ( function_exists('iwt_plugin_notice') ) {
+    deactivate_plugins( plugin_basename( __FILE__ ) );
+    wp_die( 'You have Indieweb Taxonomy activated. Post Kinds replaces this plugin. Please disable Taxonomy before activating' );
+  }
+  register_taxonomy_kind();
+  kind_defaultterms();
+}
 
 function register_taxonomy_kind() {
 	load_plugin_textdomain( 'Post Kind', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
@@ -441,6 +454,12 @@ function json_rest_add_kindmeta($_post,$post,$context) {
 	return $_post;
 }
 
+function kind_content_feed($content, $feed_type) {
+  $response = get_kind_response_display();
+  $response = str_replace(']]>', ']]&gt;', $response);
+  return $response . $content; 
+}
+
 function postkind_plugin_notice() {
     if (!class_exists("WebMentionPlugin"))
         {
@@ -449,5 +468,12 @@ function postkind_plugin_notice() {
            _e( 'This Plugin Requires Webmention Support', 'post_kinds' );
             echo '</a></p></div>';
         }
+}
+
+function kind_remove_semantics() {
+  if (class_exists('SemanticLinkbacksPlugin') ) {
+    remove_filter('comment_text', array('SemanticLinkbacksPlugin', 'comment_text_excerpt'),12);
+    add_filter('comment_text', 'kind_comment_text_excerpt', 12, 3);
+  }
 }
 ?>
