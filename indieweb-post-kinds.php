@@ -1,9 +1,9 @@
 <?php
 /**
  * Plugin Name: IndieWeb Post Kinds
- * Plugin URI: https://github.com/dshanske/indieweb-post-kinds
+ * Plugin URI: https://wordpress.org/plugins/indieweb-post-kinds/
  * Description: Ever want to reply to someone else's post with a post on your own site? Or to "like" someone else's post, but with your own site?
- * Version: 1.2.1
+ * Version: 1.2.2
  * Author: David Shanske
  * Author URI: http://david.shanske.com
  * Text Domain: Post kinds
@@ -436,21 +436,22 @@ function kind_archive_title($title)
 
 function it_publish ( $ID, $post=null)
   {
-     $response = get_post_meta($ID, 'response', true);
-     if (!empty($response) && isset($response['url']))
-	 {
-     		send_webmention(get_permalink($ID), $response['url']);
- 	 }
+     $cites = get_post_meta($ID, 'mf2_cite', true);
+     foreach ($cites as $cite) {
+        if (!empty($cite) && isset($cite['url'])) {
+     		  send_webmention(get_permalink($ID), $cite['url']);
+        }
+ 	  }
   }
 
 
 function it_transition($old,$new,$post){
-                it_publish($post->ID,$post);
+  it_publish($post->ID,$post);
 }
 
 function json_rest_add_kindmeta($_post,$post,$context) {
-	$response = get_post_meta( $post["ID"], 'response');
-	if (!empty($response)) { $_post['response'] = $response; }
+	$response = get_post_meta( $post["ID"], 'mf2_cite');
+	if (!empty($response)) { $_post['mf2_cite'] = $response; }
 	return $_post;
 }
 
