@@ -1,9 +1,38 @@
 <?php 
 // Kind Meta Display Function
 
+/**
+  * Returns an array of post kind slugs to their translated verbs
+         *
+
+         *
+         * @return array The array of translated post kind verbs.
+         */
+        function get_post_kind_phrases() {
+                $strings = array(
+                        'article' => _x( ' ', 'Post kind' ),
+                        'note'    => _x( ' ',    'Post kind' ),
+                        'reply'     => _x( '<span class="verb">In Reply To</span> %1s',     'Post kind' ),
+                        'repost'  => _x( 'Reposted %1s',  'Post kind' ),
+                        'like'     => _x( 'Liked %1s',     'Post kind' ),
+                        'favorite'    => _x( 'Favorited %1s',    'Post kind' ),
+                        'bookmark'    => _x( 'Bookmarked %1s',    'Post kind' ),
+                        'photo'   => _x( ' ',   'Post kind' ),
+                        'tag'    => _x( 'Tagged %1s',    'Post kind' ),
+                        'rsvp'    => _x( 'RSVPed %1s',    'Post kind' ),
+                        'listen'    => _x( 'Listened to %1s',    'Post kind' ),
+                        'watch'   => _x( 'Watched', 'Post kind' ),
+                        'checkin'   => _x( 'Checked In', 'Post kind' ),
+                        'wish'   => _x( 'Desires', 'Post kind' ),
+                        'play'   => _x( 'Played', 'Post kind' )
+                );
+               return apply_filters( 'kind_phrases', $strings );
+
+        }
+
+
 // Extracts the Domain Name for a URL for presentation purposes
-if (!function_exists('extract_domain_name'))
-  {
+if (!function_exists('extract_domain_name')) {
     function extract_domain_name($url) {
       $host = parse_url($url, PHP_URL_HOST);
       $host = preg_replace("/^www\./", "", $host);
@@ -38,7 +67,7 @@ function kind_display_url($cite) {
           $url = ' ' . '<a class="u-url" href="' . $cite['url'] . '">' . '<span class="p-name">' . $cite['name'] . '</span>' . '</a>';
     }
     else {
-      $url = ' ' . '<a class="u-url" href="' . $cite['url'] . '">' . '<span class="p-name">' . get_the_title() . '</span>' . '</a>';
+      $url = ' ' . '<a class="u-url" href="' . $cite['url'] . '">' . '<span class="p-name">' . _x ('a post', 'Post kinds') . '</span>' . '</a>';
     }
   }
   return $url;
@@ -57,6 +86,14 @@ function kind_display_domain($url) {
   $domain = ' (<em>' . extract_domain_name($url) . '</em>)';
   return $domain;
 }
+
+// Take the url and return the domain name marked up
+function kind_display_publication($publish) {
+  if (empty($publish) ) { return ""; }
+  $pub = ' (<em><span class="p-publication">' . $publish . '</span></em>)';
+  return $pub;
+}
+
 
 // Take the content and return the content marked up
 function kind_display_content($c) {
@@ -102,10 +139,18 @@ function kind_display_cite($cite, $verb) {
   if ( isset($cite['url']) ) {
     $name = kind_display_url($cite);
     $embed = kind_display_embeds($cite['url']);
-    $domain = kind_display_domain($cite['url']);
+    if ( isset($cite['publication']) ) {
+      $domain = kind_display_publication($cite['publication']);
+    }
+    else {
+      $domain = kind_display_domain($cite['url']);
+    }
   }
   else {
-    $name = kind_display_name($cite['name']); 
+    $name = kind_display_name($cite['name']);
+    if ( isset($cite['publication']) ) {
+      $domain = kind_display_publication($cite['publication']);
+    }
   }
   if ( isset($cite['content']) ) {
     $content = kind_display_content($cite['content']);

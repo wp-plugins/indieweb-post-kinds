@@ -3,14 +3,14 @@
  * Plugin Name: IndieWeb Post Kinds
  * Plugin URI: https://wordpress.org/plugins/indieweb-post-kinds/
  * Description: Ever want to reply to someone else's post with a post on your own site? Or to "like" someone else's post, but with your own site?
- * Version: 1.2.2
+ * Version: 1.2.3
  * Author: David Shanske
  * Author URI: http://david.shanske.com
  * Text Domain: Post kinds
  */
 
 if ( ! defined( 'POST_KIND_EXCLUDE' ) )
-    define('POST_KIND_EXCLUDE', 'play,wish,rsvp,checkin');
+    define('POST_KIND_EXCLUDE', 'play,wish,checkin');
 
 if ( ! defined( 'MULTIKIND' ) )
     define('MULTIKIND', '0');
@@ -437,6 +437,7 @@ function kind_archive_title($title)
 function it_publish ( $ID, $post=null)
   {
      $cites = get_post_meta($ID, 'mf2_cite', true);
+     if (empty($cites)) { return; }
      foreach ($cites as $cite) {
         if (!empty($cite) && isset($cite['url'])) {
      		  send_webmention(get_permalink($ID), $cite['url']);
