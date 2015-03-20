@@ -20,6 +20,10 @@ function iwt_options_init() {
       add_settings_field( 'contentelements', __('Response Content Allowed Html Elements', 'Post kind') . ' <a href="http://codex.wordpress.org/Function_Reference/wp_kses">*</a>', 'iwt_textbox_callback', 'iwt_options', 'iwt-content' ,  array( 'name' => 'contentelements') );
     }
   }
+  add_settings_field( 'linksharing', __('Link Sharing', 'Post kind'), 'iwt_callback', 'iwt_options', 'iwt-content' ,  array( 'name' => 'linksharing') );
+  add_settings_field( 'mediacheckin', __('Media Check-Ins', 'Post kind'), 'iwt_callback', 'iwt_options', 'iwt-content' ,  array( 'name' => 'mediacheckin') );
+
+
 }
 
 function iwt_options_callback() {
