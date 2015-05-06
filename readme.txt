@@ -1,7 +1,7 @@
 === Indieweb Post Kinds ===
 Contributors: dshanske
 Tags: indieweb, interaction, posts, webmention
-Stable tag: 1.3.1
+Stable tag: trunk
 Requires at least: 4.0
 Tested up to: 4.1
 License: GPLv2 or later
