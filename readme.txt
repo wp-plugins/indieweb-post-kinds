@@ -1,9 +1,9 @@
 === Indieweb Post Kinds ===
 Contributors: dshanske
 Tags: indieweb, interaction, posts, webmention
-Stable tag: trunk
-Requires at least: 4.0
-Tested up to: 4.1
+Stable tag: 1.4
+Requires at least: 4.1
+Tested up to: 4.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -62,15 +62,12 @@ to publish are specific to your needs.
 
 By default, only note, article, photo and reply are enabled so you can get used to them.
 
-You can add Media Check-Ins(watching or listening), or Link Sharing(likes or bookmark) directly from the settings page.
+You can add Media Check-Ins(watching or listening), or Link Sharing(likes, favorites, or bookmark) directly from the settings page.
 
-You can enable/disable more based on preference. Some may be enabled by plugins. To include kinds in the post selector, 
-add the following to your wp-config.php file.
+You can enable/disable more based on preference. Some may be enabled by plugins.
 
-define('POST_KIND_INCLUDE', 'wish,rsvp,checkin');
-
-This will allow rsvp, checkin, and wish to show up in the post editor. Not having a post kind enabled will not disable
-the functionality on existing posts.
+Not having a post kind enabled will not disable the functionality on existing 
+posts.
 
 There is also a filter to do this on the fly.
 
@@ -116,18 +113,7 @@ posts.
 = Future Kinds =
 
 With the recent expansion of kinds into passive types of posts, there may be
-additional ones added. Feedback appreciated
-
-== WordPress GeoData ==
-
-[WordPress Geodata](http://codex.wordpress.org/Geodata) is an existing standard
-used to store geodata about a post.
-
-It consists of four fields: latitude, longitude, public, and address. For 
-Indieweb Compatibility, intention is to support a 5th parameter, venue.
-
-Address would be a physical address. Venue would identify the location's
-name. This is necessary to improve check-in display.
+additional ones added. Feedback appreciated.
 
 == Future Plans ==
 
@@ -148,6 +134,8 @@ define('MULTIKIND', '1');
 Indieweb Post Kinds already has support for replying to Twitter posts using the Social Network Auto Poster plugin.
 
 == Changelog == 
+ * *Version 1.4.0* - Rewrite to class-scoped functions in line with WordPress
+Guidelines
  * *Version 1.3.1* - Additional refinements to kind defaults and minor bugfixes
  * *Version 1.3.0* - Add functionality to better customize displays for different types. Add default options on activation. Show/hide check-in if
   Simple Location plugin is enabled. Change exclude types to include types. Add filter for plugins to show/hide kinds in the selector.
