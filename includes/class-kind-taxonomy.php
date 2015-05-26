@@ -25,6 +25,8 @@ class kind_taxonomy {
 
 		// Trigger Webmention on Change in Post Status
 		add_filter('transition_post_status', array( 'kind_taxonomy', 'transition'), 10, 3);
+		// On Post Publush Invalidate any Stored Response
+    add_action( 'publish_post', array('kind_taxonomy', 'invalidate_response'), 10, 2 );
 
 
 		// Return Kind Meta as part of the JSON Rest API
@@ -38,6 +40,10 @@ class kind_taxonomy {
 
 
 	}
+
+  public static function invalidate_response($ID, $post) {
+    delete_post_meta( get_the_ID(), '_resp_full' );
+  }
 
 	public static function activate_kinds() {
 		if ( function_exists('iwt_plugin_notice') ) {
@@ -277,7 +283,7 @@ class kind_taxonomy {
 			$include = array_merge($include, array ( 'like', 'bookmark', 'favorite', 'repost') );
 		}
 		if ($option['mediacheckin']==1) {
-			$include = array_merge($include, array ( 'watch', 'listen') );
+			$include = array_merge($include, array ( 'watch', 'listen', 'play') );
 		}
 		// Filter Kinds
 		$include = array_unique(apply_filters('kind_include', $include));
@@ -427,27 +433,18 @@ class kind_taxonomy {
 		else {
 			return _x('on', 'Post kind');
 		}
-	} 
+	}
 
-	/**
-	 * Returns an array of domains with the post type terminologies
-	 *
-	 * @return array A translated post type string for specific domain or 'a post'
-	 */
-	public static function get_post_type_string($url) {
-		$strings = array(
-			'twitter.com' => _x( 'a tweet', 'Post kind' ),
-			'vimeo.com' => _x( 'a video', 'Post kind' ),
-			'youtube.com'   => _x( 'a video', 'Post kind' )
-		);
-		$domain = extract_domain_name($url);
-		if (array_key_exists($domain, $strings) ) {
-			return apply_filters( 'kind_post_type_string', $strings[$domain] );
+	public static function get_duration_string($verb) {
+		$strings = array();
+		$strings = apply_filters( 'kind_duration_string', $strings );
+		if (array_key_exists($verb, $strings) ) {
+			return $strings[$verb];
 		}
 		else {
-			return _x('a post', 'Post kind');
+			return _x('for', 'Post kind');
 		}
-	}
+	} 
 
 	public static function remove_semantics() {
 		if (class_exists('SemanticLinkbacksPlugin') ) {
@@ -497,17 +494,24 @@ class kind_taxonomy {
 		// strip leading www, if any
 		$host = preg_replace("/^www\./", "", $host);
 		// generate output
-		$text = sprintf($comment_type_excerpts[$comment_type], get_comment_author_link($comment->comment_ID), $post_format, $url, $host);
+		$text = sprintf($comment_type_excerpts[$comment_type], get_comment_author_link($comment->comment_ID), 'this ' . $post_format, $url, $host);
 		return apply_filters("semantic_linkbacks_excerpt", $text);
 	}
 
 	public static function publish ( $ID, $post=null) {
 		$cites = get_post_meta($ID, 'mf2_cite', true);
 		if (empty($cites)) { return; }   
-		foreach ($cites as $cite) {
-			if (!empty($cite) && isset($cite['url'])) {
-				send_webmention(get_permalink($ID), $cite['url']);
-      }
+		if (is_multi_array($cites)) {
+			foreach ($cites as $cite) {
+				if (!empty($cite) && isset($cite['url'])) {
+					send_webmention(get_permalink($ID), $cite['url']);
+      	}
+			}
+		}
+		else {
+			if (isset($cites['url'])) {
+				send_webmention(get_permalink($ID), $cites['url']);
+			}
 		}
 	}
 
@@ -516,8 +520,8 @@ class kind_taxonomy {
 	} 
 
 	public static function json_rest_add_kindmeta($_post,$post,$context) {
-		$response = get_post_meta( $post["ID"], 'mf2_cite');
-		if (!empty($response)) { $_post['mf2_cite'] = $response; }
+		$response = new kind_meta( $post["ID"]);
+		if (!empty($response)) { $_post['mf2'] = $response->get_all_meta(); }
 		return $_post;
 	}
 
@@ -556,6 +560,19 @@ class kind_taxonomy {
 		}
 		return $classes;
 	}
+
+	/**
+ 	 * Returns true if kind is a response type kind.
+ 	 * This means dynamically generated content is added
+ 	 *
+ 	 * @param string $kind The post kind slug.
+ 	 * @return true/false.
+ 	 */
+	public static function response_kind( $kind ) {
+		$not_responses = array( "article", "note" , "photo");
+		if (in_array($kind, $not_responses)) { return false; }
+  	else { return true; }
+}
 
 
 } // End Class kind_taxonomy
